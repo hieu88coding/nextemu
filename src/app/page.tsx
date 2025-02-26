@@ -14,6 +14,8 @@ import {
 } from "@/components/ui/card";
 import Header from "@/components/header/header";
 import { useCartStore } from "@/hooks/useCartStore";
+import Hero06 from "@/components/hero-06/hero-06";
+import Footer04Page from "@/components/footer-04/footer-04";
 export default function Home() {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -52,7 +54,8 @@ export default function Home() {
   return (
     <div>
       <Header />
-      <div className="w-1/2 flex row justify-between m-2">
+      <Hero06 />
+      <div className="w-1/2 flex row justify-between m-2 relative">
         <Button
           onClick={() => setFilter("")}
           variant={filter === "" ? "outline" : "default"}
@@ -84,16 +87,16 @@ export default function Home() {
           Woman's Clothing
         </Button>
       </div>
-      <div className=" w-full flex row flex-wrap">
+      <div className="w-full flex row flex-wrap">
         {products.map((p: IProduct) => (
           <Card key={p.id} className="w-1/4 m-2 flex col justify-between">
             <CardHeader>
               <CardTitle className="h-6 ">{p.title}</CardTitle>
               <CardDescription className="text-xl">${p.price}</CardDescription>
               <CardContent className="my-6 flex-grow">
-                <div className="relative w-full min-h-[300px]">
+                <div className="relative w-full min-h-[300px] ">
                   <Image
-                    className="my-6"
+                    className="my-6 z-0"
                     layout="fill"
                     objectFit="contain"
                     src={p.image}
@@ -116,6 +119,7 @@ export default function Home() {
           </Card>
         ))}
       </div>
+      <Footer04Page />
     </div>
   );
 }
