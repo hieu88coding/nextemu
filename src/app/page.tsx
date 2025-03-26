@@ -20,8 +20,7 @@ export default function Home() {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [filter, setFilter] = useState<string>("");
-  const { items, total, addItem, removeItem, updateQuantity, clearCart } =
-    useCartStore((state) => state);
+  const { addItem } = useCartStore((state) => state);
   useEffect(() => {
     fetch("https://fakestoreapi.com/products?limit=5")
       .then((res) => res.json())
@@ -66,7 +65,7 @@ export default function Home() {
           onClick={() => setFilter(`men's clothing`)}
           variant={filter === `men's clothing` ? "outline" : "default"}
         >
-          Men's Clothing
+          Men&apos;s Clothing
         </Button>
         <Button
           onClick={() => setFilter(`jewelery`)}
@@ -84,7 +83,7 @@ export default function Home() {
           onClick={() => setFilter(`women's clothing`)}
           variant={filter === `woman's clothing` ? "outline" : "default"}
         >
-          Woman's Clothing
+          Woman&apos;s Clothing
         </Button>
       </div>
       <div className="w-full flex row flex-wrap">

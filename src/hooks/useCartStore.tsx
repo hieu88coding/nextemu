@@ -29,7 +29,7 @@ export const CounterStoreProvider = ({
 };
 
 export const useCartStore = <T,>(selector: (store: CartState) => T): T => {
-  const counterStoreContext = useContext(CounterStoreContext);
+  const counterStoreContext = useContext(CounterStoreContext); //lấy thông tin store ra
 
   if (!counterStoreContext) {
     throw new Error(`useCounterStore must be used within CounterStoreProvider`);

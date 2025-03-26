@@ -16,7 +16,6 @@ import { useCartStore } from "@/hooks/useCartStore";
 import { redirect } from "next/navigation";
 import Image from "next/image";
 import { ShoppingCartIcon } from "lucide-react";
-import { useEffect, useState } from "react";
 const Navbar05Page = () => {
   const { items, total } = useCartStore((state) => state);
   return (
